@@ -83,9 +83,9 @@ function build_openssl {
 
 build_openssl 1.0.2o
 # Compiled Pythons need to be flagged in the choose_python.sh script.
-compile_python 3.7.6 "--with-openssl=/usr/local/ssl"
-compile_python 3.8.1 "--with-openssl=/usr/local/ssl"
-compile_python 3.9.0 "--with-openssl=/usr/local/ssl"
+compile_python 3.7.11 "--with-openssl=/usr/local/ssl"
+compile_python 3.8.11 "--with-openssl=/usr/local/ssl"
+compile_python 3.9.6 "--with-openssl=/usr/local/ssl"
 compile_python 3.10.0rc1 "--with-openssl=/usr/local/ssl"
 
 # Install certificates from certifi, for Python 3.7
