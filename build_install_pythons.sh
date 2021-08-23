@@ -35,6 +35,7 @@ function compile_python {
     local py_ver="$1"
     local extra_args="$2"
     local default_abi_suff="m"
+    local py_nodot=$(echo ${py_ver} | awk -F "." '{ print $1$2 }')
     # Python 3.8 and up no longer uses the PYMALLOC 'm' suffix
     # https://github.com/pypa/wheel/pull/303
     if [ ${py_nodot} -ge "38" ]; then
@@ -47,7 +48,6 @@ function compile_python {
     local py_nums=$(echo $py_ver |  awk -F "." '{printf "%d.%d.%d", $1, $2, $3}')
     wget https://www.python.org/ftp/python/${py_nums}/${ftgz}
     tar zxf ${ftgz}
-    local py_nodot=$(echo ${py_ver} | awk -F "." '{ print $1$2 }')
     local out_root=/opt/cp${py_nodot}${abi_suff}
     mkdir $out_root
     (cd Python-${py_ver} \
